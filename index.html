@@ -16,16 +16,19 @@
     </head>
 
     <body>
-      <marquee><h1>Hier kommt Martin!</h1></marquee>
-    <marquee scrollamount="50" scrolldelay="5" behavior="alternate">
-      <b><img src="./img/03e4745.jpg"></b>
-    </marquee>
-
-    <marquee behavior="alternate">
-      <b><img src="./img/03e4745.jpg" style="
-	border: 30px double aqua;
-    "></b>
-    </marquee>
+    <div id="kommtmartin?">
+        <marquee><h1>Hier kommt Martin!</h1></marquee>
+        <marquee behavior="alternate"><b><img src="./img/03e4745.jpg"></b></marquee>
+        <marquee scrollamount="50" scrolldelay="5" behavior="alternate"><b><img <img src="./img/03e4745.jpg" style="border: 30px double aqua;"></b></marquee>
+    </div>
+    <script>
+      var day = new Date().getDay();
+      if (day > 0 && day < 6) {
+         document.getElementById('kommtmartin?').style.display = "";
+      } else {
+         document.getElementById('kommtmartin?').innerHTML = "<h1 align=\"center\">Martin is only available Mon--Fri</h1>";
+      };
+    </script>
 
     <h2>
       Webmaster: 
