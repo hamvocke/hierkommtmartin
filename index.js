@@ -6,6 +6,7 @@ app.use(express.static(__dirname + '/public'));
 
 
 app.get('/', function (req, res) {
+  console.log("GET request received on /");
   res.send('Hello World!');
 });
 
