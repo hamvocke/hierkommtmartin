@@ -7,22 +7,13 @@ var io = require('socket.io')(http);
 app.set('port', (process.env.PORT || 5000));
 app.use(express.static(__dirname + '/public'));
 
-app.get('/', function (req, res) {
-  console.log("GET request received on /");
-  res.send('Hier kommt Martin');
-});
-
-app.get('/content', function(req, res) {
+app.get('/', function(req, res) {
   res.sendFile(path.join(__dirname + '/public/martin.html'));
 });
 
 app.get('/toggle', function(req, res) {
   io.emit('season change', 'summer');
   res.send('Activated summer mode');
-});
-
-app.get('/summer', function(req, res) {
-  res.sendFile(path.join(__dirname + '/public/summer.html'));
 });
 
 io.on('connection', function(socket){
