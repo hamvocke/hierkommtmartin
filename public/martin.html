@@ -38,14 +38,18 @@
     <script>
       var socket = io();
 
+      var changedBackground = false;
+
       socket.on('season change', function(season){
         console.log("Season change detected: " + season);
 
-        if(season === "summer") {
+        if(!changedBackground) {
           document.body.style.background = "yellow";
         } else {
           document.body.style.background = "purple";
         }
+
+        changedBackground = true;
 
       });
     </script>
