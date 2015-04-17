@@ -22,11 +22,11 @@ app.get('/', function(req, res) {
 });
 
 app.get('/toggle', function(req, res) {
-  var date = new Date().getTime();
+  var date = new Date();
   console.log(date + ": The Button has been pressed")
   io.emit('season change', 'summer');
 
-  client.post('statuses/update', {status: 'The button has been pressed. #hierkommtmartin #twde'},  function(error, tweet, response){
+  client.post('statuses/update', {status: date + ': The button has been pressed. #hierkommtmartin #twde'},  function(error, tweet, response){
     if(error) {
       console.log("Error occured sending tweet:");
       console.log(error);
