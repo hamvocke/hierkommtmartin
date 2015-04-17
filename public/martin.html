@@ -37,23 +37,9 @@
     <script src="//cdn.socket.io/socket.io-1.2.0.js"></script>
     <script>
       var socket = io();
-
-      var changedBackground = false;
-
       socket.on('season change', function(season){
         console.log("Season change detected: " + season);
-
-        if(!changedBackground) {
-          document.body.style.background = "yellow";
-          document.getElementById('martinimg').src = "./img/summer_martin.png"
-          document.getElementById('martinimg2').src = "./img/summer_martin.png"
-        } else {
-          document.body.style.background = "purple";
-          document.getElementById('martinimg').src = "./img/martin.jpg"
-          document.getElementById('martinimg2').src = "./img/martin.jpg"
-        }
-
-        changedBackground = !changedBackground;
+        location.href = "/summer.html";
       });
     </script>
 

@@ -28,6 +28,7 @@
     <img id="splashPic" src="splash.png" style="display: none; margin-top: 650px; margin-left: -50px;" />
     </body>
 
+    <script src="//cdn.socket.io/socket.io-1.2.0.js"></script>
     <script>
     var goingDown = false;
 
@@ -54,6 +55,12 @@
       }
       goingDown = !goingDown;
     };
+
+    var socket = io();
+    socket.on('season change', function(season){
+      console.log("Season change detected: " + season);
+      location.href = "/martin.html";
+    });
      </script>
 
 </html>
