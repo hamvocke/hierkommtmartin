@@ -7,11 +7,11 @@ app.use(express.static(__dirname + '/public'));
 
 app.get('/', function (req, res) {
   console.log("GET request received on /");
-  res.send('Hello World!');
+  res.render('martin.html');
 });
 
 app.get('/content', function(req, res) {
-  res.render('index.html');
+  res.send('Hello World!');
 });
 
 app.listen(app.get('port'), function() {
