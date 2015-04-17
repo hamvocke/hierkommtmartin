@@ -16,9 +16,13 @@ app.get('/content', function(req, res) {
   res.sendFile(path.join(__dirname + '/public/martin.html'));
 });
 
-app.get('/summer', function(req, res) {
+app.get('/toggle', function(req, res) {
   io.emit('season change', 'summer');
   res.send('Activated summer mode');
+});
+
+app.get('/summer', function(req, res) {
+  res.sendFile(path.join(__dirname + '/public/summer.html'));
 });
 
 io.on('connection', function(socket){

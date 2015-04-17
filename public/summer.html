@@ -7,27 +7,16 @@
 	<title>Hier kommt Martin!</title>
 	<style type="text/css">
 	    body {
-		background: yellow;
+		      background: yellow;
 	    }
-	</style>
 
-	<script src="js/analytics.js"></script>
+
+	</style>
     </head>
 
     <body>
-    <div id="kommtmartin?">
-        <marquee><h1>Hier kommt Sommer-Martin!</h1></marquee>
-        <marquee behavior="alternate"><b><img src="./img/03e4745.jpg"></b></marquee>
-        <marquee scrollamount="50" scrolldelay="5" behavior="alternate"><b><img src="./img/03e4745.jpg" style="border: 30px double aqua;"></b></marquee>
-    </div>
-    <script>
-      var day = new Date().getDay();
-      if (day > 0 && day < 6) {
-         document.getElementById('kommtmartin?').style.display = "";
-      } else {
-         document.getElementById('kommtmartin?').innerHTML = "<h1 align=\"center\">Tut mir leid, aber auch Martin hat mal Wochenende.</h1>";
-      };
-    </script>
+      <div style="position: absolute; top: 200; z-index: 100;"><img src="img/ladder.png"></div>
+      <marquee id="martinmarquee" onbounce="foo()" scrollAmount="80" direction="down" height="1100" behavior="alternate" style="z-index: 101; left: 150px; position: absolute;"><b><img src="./img/summer_martin.png"></b></marquee>
 
     <h2>
       Webmaster:
@@ -36,4 +25,19 @@
     </h2>
 
     </body>
+
+    <script>
+    var goingDown = false;
+    var foo = function (){
+      if(goingDown) {
+        document.getElementById('martinmarquee').scrollAmount = 80;
+        document.getElementById('martinmarquee').style['z-index'] = 101;
+      } else {
+        document.getElementById('martinmarquee').scrollAmount = 20;
+        document.getElementById('martinmarquee').style['z-index'] = 99;
+      }
+      goingDown = !goingDown;
+    };
+     </script>
+
 </html>
