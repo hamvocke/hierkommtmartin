@@ -17,6 +17,7 @@ app.get('/content', function(req, res) {
 });
 
 app.get('/summer', function(req, res) {
+  io.emit('season change', 'summer');
   res.send('Activated summer mode');
 });
 
