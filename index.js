@@ -7,6 +7,10 @@ app.use(express.static(__dirname + '/public'));
 
 app.get('/', function (req, res) {
   console.log("GET request received on /");
+  res.render('index.html');
+});
+
+app.get('/content', function(req, res) {
   res.send('Hello World!');
 });
 
