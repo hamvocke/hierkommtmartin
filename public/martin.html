@@ -16,8 +16,8 @@
     <body>
     <div id="kommtmartin?">
         <marquee><h1>Hier kommt Martin!</h1></marquee>
-        <marquee behavior="alternate"><b><img src="./img/martin.jpg"></b></marquee>
-        <marquee scrollamount="50" scrolldelay="5" behavior="alternate"><b><img src="./img/martin.jpg" style="border: 30px double aqua;"></b></marquee>
+        <marquee behavior="alternate"><b><img id="martinimg" src="./img/martin.jpg"></b></marquee>
+        <marquee scrollamount="50" scrolldelay="5" behavior="alternate"><b><img id="martinimg2" src="./img/martin.jpg" style="border: 30px double aqua;"></b></marquee>
     </div>
     <script>
       var day = new Date().getDay();
@@ -45,16 +45,12 @@
 
         if(!changedBackground) {
           document.body.style.background = "yellow";
-          document.getElementById('kommtmartin?').innerHTML = "<marquee><h1>Hier kommt Sommer-Martin!</h1></marquee>"
-          + "<marquee behavior=\"alternate\"><b><img src=\"./img/summer_martin.png\"></b></marquee>"
-          + "<marquee scrollamount=\"50\" scrolldelay=\"5\" behavior=\"alternate\"><b><img src=\"./img/summer_martin.png\" style=\"border: 30px double aqua;\"></b></marquee>"
-
+          document.getElementById('martinimg').src = "./img/summer_martin.png"
+          document.getElementById('martinimg2').src = "./img/summer_martin.png"
         } else {
           document.body.style.background = "purple";
-          document.getElementById('kommtmartin?').innerHTML = "<marquee><h1>Hier kommt Martin!</h1></marquee>"
-          + "<marquee behavior=\"alternate\"><b><img src=\"./img/martin.jpg\"></b></marquee>"
-          + "<marquee scrollamount=\"50\" scrolldelay=\"5\" behavior=\"alternate\"><b><img src=\"./img/martin.jpg\" style=\"border: 30px double aqua;\"></b></marquee>"
-
+          document.getElementById('martinimg').src = "./img/martin.jpg"
+          document.getElementById('martinimg2').src = "./img/martin.jpg"
         }
 
         changedBackground = !changedBackground;
