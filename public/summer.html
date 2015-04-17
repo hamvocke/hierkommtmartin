@@ -24,17 +24,33 @@
       <a href="mailto:webmaster@hierkommtmartin.de">webmaster@hierkommtmartin.de</a>
     </h2>
 
+
+    <img id="splashPic" src="splash.png" style="display: none; margin-top: 650px; margin-left: -50px;" />
     </body>
 
     <script>
     var goingDown = false;
+
+    var splashSound = new Audio('sound.m4a');
+
+
     var foo = function (){
       if(goingDown) {
         document.getElementById('martinmarquee').scrollAmount = 80;
         document.getElementById('martinmarquee').style['z-index'] = 101;
+
+        splashSound.play();
+        document.getElementById('splashPic').style['display'] = "none";
+
       } else {
         document.getElementById('martinmarquee').scrollAmount = 20;
         document.getElementById('martinmarquee').style['z-index'] = 99;
+        document.getElementById('splashPic').style['display'] = "block";
+
+        setTimeout(function() {
+          document.getElementById('splashPic').style['display'] = "none";
+        }, 300);
+
       }
       goingDown = !goingDown;
     };
