@@ -26,7 +26,7 @@
       if(today.getDate() === 19 && today.getMonth() + 1 === 6) {
 	  document.getElementById('kommtmartin?').innerHTML = 
 	  "<h1 align=\"center\">Hier kommt Martin</h1><br><marquee behavior=\"alternate\"><img src=\"./img/birthdayMartin.png\"></marquee>";
-      } else if (today.getDay() > 0 && today.getDay < 6) {
+      } else if (today.getDay() > 0 && today.getDay() < 6) {
          document.getElementById('kommtmartin?').style.display = "";
       } else {
          document.getElementById('kommtmartin?').innerHTML = "<h1 align=\"center\">Tut mir leid, aber auch Martin hat mal Wochenende.</h1>";
