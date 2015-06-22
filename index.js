@@ -8,12 +8,11 @@ var Twitter = require('twitter');
 app.set('port', (process.env.PORT || 5000));
 app.use(express.static(__dirname + '/public'));
 
-
 var client = new Twitter({
-  consumer_key: 'rQyXZymr8H4FiYMGcwZUMaksP',
-  consumer_secret: 'qvBgUcrEUQ511oftxRjxwjozCCJv6Fi6vABrQyXOhj6fvHNJrk',
-  access_token_key: '3177457618-woh0zfOKhx1Je6r2dZamO1iKtcEfYBfK2aCiU9V',
-  access_token_secret: '5qpK4PZqZxxJPWm04fd3tkhetqa7xlhneRupDcrrgaQnE'
+  consumer_key: process.env.CONSUMER_KEY,
+  consumer_secret: process.env.CONSUMER_SECRET,
+  access_token_key: process.env.ACCESS_TOKEN_KEY,
+  access_token_secret: process.env.ACCESS_TOKEN_SECRET
 });
 
 
