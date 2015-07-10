@@ -1,9 +1,10 @@
 var net = require('net');
 var _ = require('lodash');
 
+var sockets = [];
+var intervals = [];
 var off = 0;
 var direction = 1;
-var interval;
 
 var fancyMartin = "\n"+
 "                          ╦▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▌╣▓▒⌐\n"+
@@ -44,25 +45,43 @@ var fancyMartin = "\n"+
 "                    ╖▒   '░░░δ▀█▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓█▒▒╬░░╢╣▒  ▓▓▓▓▓▄╦▄,\n"+
 "\n";
 
-var server = net.createServer(function(socket) {
-	console.log("Client connected");
-	socket.on("end", function() {
-		clearInterval(interval);
-		console.log("Disconnected");
-	});
-	clear(socket);
-	socket.write("Welcome to Asciimartin");
-	interval = setInterval(function() { writeAscii(socket) }, 50);
-});
+var receiveData = function(socket, data) {
 
-server.listen(8000);
-
-var clear = function(socket) {
-	socket.write('\033[2J');
-	socket.write('\033[H');
 }
 
-var writeAscii = function(socket) {
+var newSocket = function(socket) {
+	sockets.push(socket);
+
+	var interval = setInterval(function() {
+			socket.write(clear());
+			socket.write(writeAscii());
+	}, 50);
+
+	intervals[socket] = interval;
+
+	socket.on("data", function(data) {
+		receiveData(socket, data);
+	})
+
+	socket.on("end", function() {
+		closeSocket(socket);
+	});
+}
+
+var closeSocket = function(socket) {
+	var i = sockets.indexOf(socket);
+	if(i != -1) {
+		sockets.splice(i, 1);
+		clearInterval(intervals[socket]);
+		console.log("Disconnected");
+	}
+}
+
+var clear = function() {
+	return "\033[2J \033[H";
+}
+
+var writeAscii = function() {
 	if(direction === 1 && off > 100) {
 		direction = -1;
 	} else if(direction === -1 && off === 0) {
@@ -70,7 +89,6 @@ var writeAscii = function(socket) {
 	}
 
 	off += direction;
-	clear(socket);
 	var asciiLines = fancyMartin.split("\n");
 	var padding = "";
 	for(var i = 0; i < off; i++) {
@@ -83,5 +101,8 @@ var writeAscii = function(socket) {
 	}
 
 	var outputString = paddedLines.join("\n");
-	socket.write(outputString);
+	return outputString;
 }
+
+var server = net.createServer(newSocket);
+server.listen(8000);
