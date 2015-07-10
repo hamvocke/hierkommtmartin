@@ -1,0 +1,14 @@
+{
+  "name": "hierkommtmartin-telnet",
+  "version": "1.0.0",
+  "description": "A simple telnet server to display an ASCII version of hierkommtmartin's marquee Martin",
+  "main": "asciiserver.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ham Vocke",
+  "license": "ISC",
+  "dependencies": {
+    "lodash": "^3.10.0"
+  }
+}
