@@ -1,70 +1,168 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
-    <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
-	<meta name="theme-color" content="yellow">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+  <meta name="theme-color" content="yellow">
 
-	<link rel="shortcut icon" href="http://www.hierkommtmartin.de/favicon.ico">
+  <link rel="shortcut icon" href="http://www.hierkommtmartin.de/favicon.ico">
 
-	<title>Hier kommt Martin!</title>
-	<style type="text/css">
-	    body {
-		      background: yellow;
-                      cursor:url(img/cursor.png),auto;
-	    }
+  <title>Hier kommt Martin!</title>
+  <style type="text/css">
+  body {
+    background: yellow;
+    cursor:url(img/cursor.png),auto;
+  }
 
+  div#loader {
+    height: 100%;
+    width: 100%;
+    background: yellow;
+  }
 
-	</style>
-	<script src="js/analytics.js"></script>
-    </head>
+  svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -150px;
+    margin-left: -100px;
+    _-webkit-animation: spinning 4s infinite;
+  }
 
-    <body>
-      <div style="position: absolute; top: 200; z-index: 100;"><img src="img/ladder.png"></div>
-      <marquee id="martinmarquee" onbounce="foo()" scrollAmount="80" direction="down" height="1100" behavior="alternate" style="z-index: 101; left: 150px; position: absolute;"><b><img src="./img/summer_martin.png"></b></marquee>
+  path {
+    stroke-width: 1px;
+    stroke: rgba(0, 0, 0, 0.3);
+    fill: transparent;
+  }
 
-    <h2>
-      Webmaster:
+  line {
+    stroke-linecap: round;
+  }
 
-      <a href="mailto:webmaster@hierkommtmartin.de">webmaster@hierkommtmartin.de</a>
-    </h2>
+  </style>
+  <script src="js/analytics.js"></script>
+</head>
 
+<body>
+<div id="martin">
+  <div style="position: absolute; top: 200; z-index: 100;"><img src="img/ladder.png"></div>
+  <marquee id="martinmarquee" onbounce="foo()" scrollAmount="80" direction="down" height="1100" behavior="alternate" style="z-index: 101; left: 150px; position: absolute;"><b><img src="./img/summer_martin.png"></b></marquee>
 
-    <img id="splashPic" src="splash.png" style="display: none; margin-top: 650px; margin-left: -50px;" />
-    </body>
+  <h2>
+    Webmaster:
 
-    <script src="//cdn.socket.io/socket.io-1.2.0.js"></script>
-    <script>
-    var goingDown = false;
+    <a href="mailto:webmaster@hierkommtmartin.de">webmaster@hierkommtmartin.de</a>
+  </h2>
+  <img id="splashPic" src="splash.png" style="display: none; margin-top: 650px; margin-left: -50px;" />
+</div>
 
-    var splashSound = new Audio('sound.m4a');
+<div id="loader">
+  <svg id="spinner" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+  width="200px" height="300px" viewBox="0 0 200 300" enable-background="new 0 0 200 300" xml:space="preserve">
+  <path id="head" d="M145.696,42.269c-2.562-2.82,0-2.307-2.308-5.127s-5.896-6.665-8.201-9.229
+  c-2.309-2.562-3.59-9.484-7.949-13.329c-4.356-3.845-13.073-4.614-16.662-4.871c-3.588-0.256-9.739-8.203-26.402-8.459
+  C67.512,0.998,56.49,3.048,50.594,3.817c-5.896,0.769-9.229,8.715-14.099,11.536c-4.871,2.819-11.052,4.87-13.088,7.177
+  c-2.036,2.307-0.754,4.87-3.061,7.689c-2.308,2.82-8.459,2.052-9.998,6.152C8.811,40.475,4.196,60.212,3.171,63.8
+  c-1.025,3.591,5.125,8.203,5.125,8.203s-1.793,9.229-1.023,14.099c0.768,4.872,12.046,16.407,12.046,19.995
+  s0.514,12.303,1.026,15.636c0.366,2.38,3.208,7.881,4.807,10.842c1.126,6.366,2.113,12.561,2.37,16.331
+  c0.239,3.507,0.638,7.221,1.234,10.827c0.733,6.353,1.571,13.442,1.841,15.063c0.512,3.075,4.614,9.228,9.486,15.123
+  c0,0,18.083,22.046,38.007,21.532c0,0,27.358,1.025,40.688-19.48c13.33-20.509,12.817-31.529,12.817-31.529
+  s-0.071,0.164-0.191,0.436c0.215-1.687,0.272-3.133,0.193-4.253c-0.652-9.195,2.286-22.772,2.985-31.314
+  c0.904-4.789,2.49-13.161,3.361-17.611c1.378-0.891,1.999-2.972,1.629-4.728c2.071-3.221,5.609-5.077,5.609-5.077
+  s1.792-11.278,3.587-19.994c1.795-8.715,4.357-17.688,4.357-22.045C153.129,51.497,148.258,45.087,145.696,42.269z"/>
+  <path id="glasses" d="M51.106,93.537c13.33,0,18.458,6.407,28.455,6.407c9.996,0,16.663-7.433,26.659-7.433
+  s26.148,7.177,30.504,7.689c4.357,0.512,3.589,7.946-0.257,7.946c-3.845,0-3.845,26.146-33.066,25.12
+  c-29.224-1.024-16.405-23.839-23.585-23.583c-7.177,0.258,0,23.07-27.683,21.533c-27.685-1.536-21.789-26.402-28.967-26.402
+  c-7.177,0-4.614-7.691,0.257-7.435C28.293,97.637,51.106,93.537,51.106,93.537z"/>
+</svg>
+</div>
+</body>
+
+<script src="//cdn.socket.io/socket.io-1.2.0.js"></script>
+<script>
+var goingDown = false;
+
+var splashSound = new Audio('sound.m4a');
+splashSound.play();
+
+var foo = function (){
+  if(goingDown) {
+    document.getElementById('martinmarquee').scrollAmount = 80;
+    document.getElementById('martinmarquee').style['z-index'] = 101;
+
     splashSound.play();
+    document.getElementById('splashPic').style['display'] = "none";
 
-    var foo = function (){
-      if(goingDown) {
-        document.getElementById('martinmarquee').scrollAmount = 80;
-        document.getElementById('martinmarquee').style['z-index'] = 101;
+  } else {
+    document.getElementById('martinmarquee').scrollAmount = 20;
+    document.getElementById('martinmarquee').style['z-index'] = 99;
+    document.getElementById('splashPic').style['display'] = "block";
 
-        splashSound.play();
-        document.getElementById('splashPic').style['display'] = "none";
+    setTimeout(function() {
+      document.getElementById('splashPic').style['display'] = "none";
+    }, 300);
 
-      } else {
-        document.getElementById('martinmarquee').scrollAmount = 20;
-        document.getElementById('martinmarquee').style['z-index'] = 99;
-        document.getElementById('splashPic').style['display'] = "block";
+  }
+  goingDown = !goingDown;
+};
 
-        setTimeout(function() {
-          document.getElementById('splashPic').style['display'] = "none";
-        }, 300);
 
-      }
-      goingDown = !goingDown;
-    };
+var loaderInterval = null;
 
-    var socket = io();
-    socket.on('season change', function(season){
-      console.log("Season change detected: " + season);
-      location.href = "/martin.html";
-    });
-     </script>
+showLoader();
+window.setTimeout(hideLoader, 4000);
+
+function showLoader() {
+  loaderInterval = window.setInterval(step, 50);
+  document.getElementById('martin').style.display = "none";
+  document.getElementById('loader').style.display = "block";
+}
+
+function hideLoader() {
+  window.clearInterval(loaderInterval);
+  document.getElementById('martin').style.display = "block";
+  document.getElementById('loader').style.display = "none";
+}
+
+var spin = function spin(parent, el, pos, clr) {
+  var g = document.getElementById("spin");
+  if (!g) {
+    g = document.createElementNS("http://www.w3.org/2000/svg", "g");
+    g.setAttribute("id", "spin");
+    parent.appendChild(g);
+  }
+  var path = parent.querySelector("#" + el);
+  var len = path.getTotalLength();
+  for (var i = 0; i < 66; i++) {
+    var id = "dot" + el + "" + i + "" + clr;
+    var line = document.getElementById(id);
+    if (!line) {
+      line = document.createElementNS("http://www.w3.org/2000/svg", "line");
+      line.setAttribute("id", id);
+      g.appendChild(line);
+    }
+    var p = (i + pos) % len;
+    line.setAttributeNS(null, "x1", path.getPointAtLength(len - p).x);
+    line.setAttributeNS(null, "y1", path.getPointAtLength(len - p).y);
+    line.setAttributeNS(null, "x2", path.getPointAtLength(len - p + 1).x);
+    line.setAttributeNS(null, "y2", path.getPointAtLength(len - p + 1).y);
+    line.setAttributeNS(null, "style", "stroke:" + clr + "; stroke-width:2px;");
+  }
+};
+
+var currentStep = 0;
+
+function step() {
+  var element = document.getElementById("spinner");
+  spin(element, "head", currentStep, "#f08");
+  currentStep += 30;
+};
+
+
+var socket = io();
+socket.on('season change', function(season){
+  console.log("Season change detected: " + season);
+  location.href = "/martin.html";
+});
+</script>
 
 </html>
