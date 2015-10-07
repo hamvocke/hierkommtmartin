@@ -1,0 +1,20 @@
+/* TEAM */
+Webmaster: Hermann Vocke
+Site: www.hamvocke.com
+Twitter: @hamvocke
+Location: Hamburg, Germany
+
+Sound Engineer: Manan Bharara
+Location: Hamburg, Germany
+
+Loading Animation Designer: Nils Eckelt
+Twitter: @neckelt
+Location: Hamburg, Germany
+
+Button Soldering Expert: Philip Peter
+Site: www.justgeek.de
+Location: Hamburg, Germany
+
+/* SITE */
+Software: marquee-tags, inline CSS, nasty JavaScript and websockets.
+Twitter: @hierkommtmartin
