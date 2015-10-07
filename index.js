@@ -25,7 +25,7 @@ app.get('/toggle', function(req, res) {
   console.log(date + ": The Button has been pressed")
   io.emit('season change', 'summer');
 
-  client.post('statuses/update', {status: date + ': The button has been pressed. #hierkommtmartin #twde'},  function(error, tweet, response){
+  client.post('statuses/update', {status: "We're proudly celebrating #ALD15 at @ThoughtWorks #hierkommtada #ThoughtworksDE"},  function(error, tweet, response){
     if(error) {
       console.log("Error occured sending tweet:");
       console.log(error);
