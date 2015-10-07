@@ -73,7 +73,6 @@ var closeSocket = function(socket) {
 	if(i != -1) {
 		sockets.splice(i, 1);
 		clearInterval(intervals[socket]);
-		console.log("Disconnected");
 	}
 }
 
@@ -101,6 +100,7 @@ var writeAscii = function() {
 	}
 
 	var outputString = paddedLines.join("\n");
+	outputString += "\nEscape character is ^]";
 	return outputString;
 }
 
