@@ -53,6 +53,7 @@ var newSocket = function(socket) {
 	sockets.push(socket);
 
 	var interval = setInterval(function() {
+			if(!socket.writable) { return; }
 			socket.write(clear());
 			socket.write(writeAscii());
 	}, 50);
@@ -104,5 +105,6 @@ var writeAscii = function() {
 	return outputString;
 }
 
+console.log("starting telnet server");
 var server = net.createServer(newSocket);
 server.listen(8000);
