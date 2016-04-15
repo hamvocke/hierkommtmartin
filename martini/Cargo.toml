@@ -1,0 +1,9 @@
+[package]
+authors = ["Sebastian Thiel <byronimo@gmail.com>"]
+name = "martini"
+version = "0.1.0"
+
+[dependencies]
+ansi_term = "*"
+clap = "*"
+image = "*"
